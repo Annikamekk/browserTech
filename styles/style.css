@@ -1,0 +1,269 @@
+@font-face {
+    font-family: "NS-Regular";
+    src: url("/NS-fonts/nssans-regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NS-Bold";
+    src: url("/NS-fonts/nssans-bold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NS-Bolditalic";
+    src: url("/NS-fonts/nssans-bolditalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NS-Italic";
+    src: url("/NS-fonts/nssans-italic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NS-Demi";
+    src: url("/NS-fonts/nssans-demi.woff2") format("woff2");
+}
+
+
+:root {
+    --geel: #FFCC00;
+    --blauw: #003082;
+    --wit: white;
+    --red: rgb(224, 131, 131);
+    --red-border: rgb(209, 49, 49);
+
+    --h2: 2.5em;
+    --h3: 1em;
+    --margin: .5em 0;
+}
+
+body {
+    font-family: 'NS-Regular';
+    background-color: var(--geel);
+    color: var(--blauw);
+    box-sizing: border-box;
+    margin: 0;
+
+}
+
+header {
+    display: flex;
+    background-color: var(--wit);
+    height: 10vh;
+    width: 100%;
+    justify-items: center;
+    margin: 0;
+
+    >img {
+        padding: 0 2em;
+        height: 2em;
+        width: auto;
+        place-self: center;
+    }
+
+    >h1 {
+        font-family: 'NS-Bold';
+        font-size: 1.5em;
+        align-self: center;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+h2 {
+    font-family: 'NS-regular';
+    margin: 1em 2em;
+    font-size: var(--h2);
+}
+
+form {
+    display: flex;
+    gap: 1em;
+    background-color: var(--wit);
+    padding: 2em;
+    width: 70%;
+    place-self: center;
+}
+form> fieldset{
+    width: 100%;
+}
+fieldset {
+    margin: var(--margin);
+
+    p {
+        font-family: 'NS-Italic';
+        margin: 0;
+        font-size: 1em;
+    }
+
+    input[type="number"] {
+        width: 4em;
+    }
+
+
+
+    input[type="number"]:user-valid {
+        background-color: palegreen;
+    }
+
+    input[type="number"]:user-invalid {
+        background-color: var(--red);
+        border: .2em solid var(--red-border);
+
+    }
+   
+    .required::after {
+        content: " *";
+    }
+    
+
+    fieldset h3 {
+        font-size: var(--h3);
+        margin: 0;
+        margin: .5em 0;
+    }
+
+    h4 {
+        font-family: 'NS-Bold';
+    }
+
+    input {
+        margin: var(--margin);
+        border: .1em solid var(--blauw);
+        border-radius: .2em;
+    }
+    
+    button{
+        background-color: var(--blauw);
+        color:var(--geel) ;
+        border: none;
+        border-radius: .5em;
+        padding: 1.3em 2em;
+        float: right;
+    }
+}
+
+input:focus-visible {
+    border: .3em solid var(--blauw);
+}
+
+form>fieldset>h3 {
+    font-family: 'NS-Bold';
+    font-size: 1.5em;
+    margin: .5em;
+}
+
+/* -----------1a---------------- */
+
+.a {
+    display: flex;
+    flex-direction: column;
+}
+
+.a section:nth-of-type(1){
+    display:flex;
+    gap: 1em;
+}
+
+/* -----------1b---------------- */
+
+.b:not(:has(#ja:checked)) fieldset:nth-of-type(n+2) {
+    display: none;
+}
+
+.b:has(#ja:checked) fieldset:nth-of-type(n+2) {
+    border: .15em solid var(--blauw);
+}
+
+fieldset:has(#ja2:checked) #akteFile {
+    display: block;
+}
+
+#akteFile {
+    display: none;
+    /* background-color: var(--blauw);
+    color: var(--geel); */
+    font-family: 'NS-Bold';
+    font-size: 1.1em;
+    width: 50%;
+    
+    border-radius: .3em;
+    margin: var(--margin);
+}
+
+/* -----------1c---------------- */
+
+.c:not(:has(#ja2c:checked)) fieldset:nth-of-type(n+2) {
+    display: none;
+}
+
+.c:has(#ja2c:checked) fieldset:nth-of-type(n+2) {
+    border: .15em solid var(--blauw);
+}
+
+.c:has(#neeC1:checked) fieldset:nth-of-type(n+3) {
+    display: none;
+    transition: .3s ease-in-out;
+}
+
+fieldset:has(#neeC1:checked) {
+    display: block;
+}
+
+fieldset.c:has(#neeC2:checked) fieldset:nth-of-type(n+4) {
+    display: none;
+    transition: .3s ease-in-out;
+}
+
+/* -----------1d---------------- */
+
+small {
+    display: none;
+}
+
+.d:not(:has(#jad1:checked)) fieldset:nth-of-type(n+2) {
+    display: none;
+}
+
+.d:has(#jad1:checked) fieldset:nth-of-type(n+2) {
+    display: block;
+}
+
+
+
+@media (min-width:580px) and (max-width:750px) {
+    
+    form {
+       
+        width: 90%;
+    
+    }
+    form> fieldset{
+        width: 100%;
+    }
+}
+
+@media  (max-width:579px) {
+    header{
+        padding: 0 ;
+        justify-items: center;
+
+        >img {
+            height: 1.5em;
+            width: auto;
+            padding: 1em;
+            place-self: center;
+        }
+    }
+    
+    form {
+        width: 90%;
+        padding: 1em;
+        margin: 0;
+    }
+    .a section:nth-of-type(1){
+        flex-direction: column;
+        gap: 1em;
+    }
+}
+
+

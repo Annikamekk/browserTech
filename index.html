@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Belasting bij de NS</title>
+</head>
+
+<body>
+    <header>
+        <img src="img/Nederlandse_Spoorwegen_logo.svg.png" alt="">
+        <h1>NS Spoorwegen</h1>
+    </header>
+    <main>
+        <h2>Erfbelasting</h2>
+
+        <form action="">
+            <fieldset>
+                <h3>1. Gegevens van de overledene</h3>
+                <p>Vul hier de gegevens in van de overledene. </p>
+                <fieldset class="a">
+                    <legend>1a.</legend>
+                    <section>
+                        <label for="naam">Voorletter(s)
+                            <input type="text" name="Voorlet" placeholder="A. N" id="naam" required>
+                        </label>
+                        <label for="Tussenvoegsel">Tussen-voegsel(s)
+                            <input type="text" name="Tussenvoegsel" id="Tussenvoegsel">
+                        </label>
+                        <label for="achternaam">Achternaam
+                            <input type="text" name="achternaam" placeholder="Doe" id="achternaam" required>
+                        </label>
+                    </section>
+
+                    <label for="BSN">BSN van de overledene
+                        <input type="text" name="BSN" id="BSN" required pattern="[1-9][0-9]{8}">
+                    </label>
+                   
+                        <label for="overlijdingsDag">Overlijdensdatum</label>
+                         <section>
+                        <input type="number" name="huwelijkDag" placeholder="DD" id="overlijdingsDag" min="1" max="31"
+                            value="">
+                        -
+                        <input type="number" name="huwelijkMaand" placeholder="MM" id="overlijdingsMaand" min="1"
+                            max="12" value=""> -
+                        <input type="number" name="huwelijkJaar" placeholder="JJJJ" id="overlijdingsJaar" min="1900"
+                            max="2025" value="">
+                    </section>
+                </fieldset>
+                <h4>Klik deze stellingen aan als ze waar zijn.</h4>
+                <fieldset class="b">
+                    <legend>1b.</legend>
+                    <fieldset>
+                        <label for="ja"><input type="checkbox" name="checkbox" id="ja">
+                            Was de overledene getrouwd of had de overledene een
+                            geregistreerd partner op het moment van overlijden?
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <h3>
+                            Hadden de overledene en diens echtgenoot of
+                            geregistreerd partner huwelijkse of partner schaps-
+                            voorwaarden laten vastleggen in een notariële akte?
+                        </h3>
+                        <label for="ja2"><input type="radio" name="aangifte" id="ja2">
+                            ja.</label>
+                        <label for="akte" id="akteFile">Stuur een kopie van de akte mee met de aangifte
+                        <input type="file" id="akte" name="akte" accept="image/*,.pdf" /></label>
+                        <label for="nee2">
+                            <input type="radio" name="aangifte" id="nee2">Nee.
+                        </label>
+
+                    </fieldset>
+                    <fieldset>
+                        <h3>
+                            Hadden de overledene en diens partner een finaal
+                            verrekenbeding?
+                        </h3>
+                        <label for="ja3">
+                            <input type="radio" name="finaal" id="ja3">ja
+                        </label>
+
+                        <label for="nee3">
+                            <input type="radio" name="finaal" id="nee3">Nee.
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <h3>
+                            Datum huwelijkse of partnerschapsvoorwaarden
+                        </h3>
+                        <input type="number" name="huwelijkDag" placeholder="DD" id="huwelijkDag" min="1" max="31"> -
+                        <input type="number" name="huwelijkMaand" placeholder="MM" id="huwelijkMaand" min="1" max="12">
+                        -
+                        <input type="number" name="huwelijkJaar" placeholder="JJJJ" id="huwelijkJaar" min="1900"
+                            max="2025">
+                    </fieldset>
+                </fieldset>
+
+                <fieldset class="c">
+                    <legend>1c.</legend>
+                    <fieldset>
+                        <label for="ja2c"><input type="checkbox" name="kinderen" id="ja2c">
+                            Had de overledene kinderen?
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <h3>
+                            Is 1 van deze kinderen eerder overleden dan de
+                            overledene voor wie u nu aangifte doet?
+                        </h3>
+                        <label for="jaC1"><input type="radio" name="overledenKind" id="jaC1">
+                            ja</label>
+                        <label for="neeC1">
+                            <input type="radio" name="overledenKind" id="neeC1">Nee.</label>
+                    </fieldset>
+                    <fieldset>
+                        <h3>
+                            Had dit overleden kind zelf kinderen?
+                        </h3>
+                        <label for="jaC3"><input type="radio" name="radio" id="jaC3">
+                            ja</label>
+                        <label for="neeC3">
+                            <input type="radio" name="radio" id="neeC3">Nee.</label>
+                    </fieldset>
+                </fieldset>
+                <fieldset class="d">
+                    <legend>1d.</legend>
+                    <fieldset>
+                        <label for="jad1"><input type="checkbox" name="testamentVraag" id="jad1">
+                            Had de overledene een testament?
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <label for="Protocol">Protocolnummer notaris
+                            <input type="text" name="notatis" id="Protocol"> 
+                        </label> 
+                        <section>
+                            <label for="voorl">Voorletter(s)
+                                <input type="text" name="Voorl" placeholder="J.D" id="voorl" required>
+                            </label>
+                            <label for="Tussenv">Tussen-voegsel(s)&
+                                <input type="text" name="Tussenv" id="Tussenv">
+                            </label>
+                            <label for="achtern">Achternaam
+                                <input type="text" name="achtern" placeholder="Doe" id="achtern" required>
+                            </label>
+                        </section>
+                        <label for="Vestigingsplaats"> Vestigingsplaats
+                            <input type="text" name="vestiging" id="Vestigingsplaats">      
+                        </label>
+                        <section>
+                            <label for="testamentwijz">Datum van het testament of
+                                van de laatste wijziging</label>
+                            <input type="number" name="testamentwijzDD" placeholder="DD" id="testamentwijzDD" min="1" max="31"
+                                value="">
+                            -
+                            <input type="number" name="testamentwijzMM" placeholder="MM" id="testamentwijzMM" min="1"
+                                max="12" value=""> -
+                            <input type="number" name="testamentwijzJJ" placeholder="JJJJ" id="testamentwijzJJ" min="1900"
+                                max="2025" value="">
+                        </section>
+                    </fieldset>
+                </fieldset>
+                <button>opslaan</button>
+            </fieldset>
+
+
+        </form>
+    </main>
+</body>
+
+</html>
