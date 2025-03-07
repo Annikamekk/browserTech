@@ -30,6 +30,9 @@
     --wit: white;
     --red: rgb(224, 131, 131);
     --red-border: rgb(209, 49, 49);
+    --green:rgb(96, 198, 96);
+    --green-border: rgb(48, 133, 48);
+    --grey: rgb(231, 231, 231);
 
     --h2: 2.5em;
     --h3: 1em;
@@ -64,7 +67,6 @@ header {
         font-family: 'NS-Bold';
         font-size: 1.5em;
         align-self: center;
-        text-align: center;
         width: 100%;
     }
 }
@@ -99,23 +101,22 @@ fieldset {
         width: 4em;
     }
 
+    input:user-valid {
+        background-color: var(--green);
+        border: .2em solid var(--green-border);
 
-
-    input[type="number"]:user-valid {
-        background-color: palegreen;
     }
 
-    input[type="number"]:user-invalid {
+    input:user-invalid {
         background-color: var(--red);
         border: .2em solid var(--red-border);
 
     }
    
-    .required::after {
+    /* .required::after::after {
         content: " *";
-    }
+    } */
     
-
     fieldset h3 {
         font-size: var(--h3);
         margin: 0;
@@ -128,22 +129,11 @@ fieldset {
 
     input {
         margin: var(--margin);
-        border: .1em solid var(--blauw);
+        border: .12em solid var(--blauw);
         border-radius: .2em;
+        padding:.5em;
     }
     
-    button{
-        background-color: var(--blauw);
-        color:var(--geel) ;
-        border: none;
-        border-radius: .5em;
-        padding: 1.3em 2em;
-        float: right;
-    }
-}
-
-input:focus-visible {
-    border: .3em solid var(--blauw);
 }
 
 form>fieldset>h3 {
@@ -162,6 +152,10 @@ form>fieldset>h3 {
 .a section:nth-of-type(1){
     display:flex;
     gap: 1em;
+}
+
+.a section:nth-of-type(1) label:nth-of-type(2)> input{
+    width: 5em;
 }
 
 /* -----------1b---------------- */
@@ -229,6 +223,100 @@ small {
 }
 
 
+/* ------------button & progress----------- */
+
+article{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    column-gap: 1em;
+
+}
+
+section{
+    width: 80%;
+}
+section h5{
+    font-family: 'NS-Demi';
+    font-size: 1em;
+   margin:var(--margin);
+}
+
+button{
+    border: none;
+    border-radius: .5em;
+    padding: 1.3em 2em;
+    float: right;
+    width:8em;
+    
+}
+
+fieldset:invalid button {
+    background-color: #a9a9a9;
+    color:#808080 ;
+    
+}
+
+fieldset:valid button {
+    display: block;
+    background-color: var(--blauw);
+    color:var(--geel) ;
+}
+progress[value] {
+  --color: var(--blauw); /* the progress color */
+  --background:var(--grey); /* the background color */
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  width: 100%;
+  margin:var(--margin);
+  border-radius: 10em;
+  background: var(--background);
+}
+progress[value]::-webkit-progress-bar {
+  border-radius: 10em;
+  background: var(--background);
+}
+progress[value]::-webkit-progress-value {
+  border-radius: 10em;
+  background: var(--color);
+}
+progress[value]::-moz-progress-bar {
+  border-radius: 10em;
+  background: var(--color);
+}
+
+/* -------------2a------------------- */
+
+h3 strong{
+    font-family: 'NS-Bold';
+}
+
+.tweeA {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.tweeA section:nth-of-type(1){
+    display:flex;
+    gap: 1em;
+    padding: 1em 0;
+}
+
+
+/* ----------------2b---------------------------- */
+
+input:focus-visible {
+    border: .3em solid var(--blauw);
+}
+
+
+
 
 @media (min-width:580px) and (max-width:750px) {
     
@@ -247,6 +335,10 @@ small {
         padding: 0 ;
         justify-items: center;
 
+        >h1{
+            font-size: 1.2em;
+        }
+
         >img {
             height: 1.5em;
             width: auto;
@@ -264,6 +356,17 @@ small {
         flex-direction: column;
         gap: 1em;
     }
+    .tweeA section:nth-of-type(1){
+        flex-direction: column;
+        gap: 1em;
+    }
 }
 
+/* 
+label p{
+    display: none;
+}
 
+label:has(input:user-invalid) + p{
+    display: block;
+} */
