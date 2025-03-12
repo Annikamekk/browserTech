@@ -102,13 +102,13 @@ fieldset {
     }
 
     input:user-valid {
-        background-color: var(--green);
+        /* background-color: var(--green); */
         border: .2em solid var(--green-border);
 
     }
 
     input:user-invalid {
-        background-color: var(--red);
+        /* background-color: var(--red); */
         border: .2em solid var(--red-border);
 
     }
@@ -168,12 +168,12 @@ form>fieldset>h3 {
     border: .15em solid var(--blauw);
 }
 
-fieldset:has(#ja2:checked) #akteFile {
-    display: block;
+fieldset:not(:has(#ja2:checked)) #akteFile {
+    display: none;
 }
 
 #akteFile {
-    display: none;
+    display: block;
     /* background-color: var(--blauw);
     color: var(--geel); */
     font-family: 'NS-Bold';
