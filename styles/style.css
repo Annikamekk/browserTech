@@ -28,9 +28,9 @@
     --geel: #FFCC00;
     --blauw: #003082;
     --wit: white;
-    --red: rgb(224, 131, 131);
+    --red: rgba(224, 131, 131, 0.2);
     --red-border: rgb(209, 49, 49);
-    --green:rgb(96, 198, 96);
+    --green:rgba(96, 198, 96, 0.2);
     --green-border: rgb(48, 133, 48);
     --grey: rgb(231, 231, 231);
 
@@ -39,6 +39,9 @@
     --margin: .5em 0;
 }
 
+.bold{
+    font-family: 'NS-Bold';
+}
 body {
     font-family: 'NS-Regular';
     background-color: var(--geel);
@@ -71,19 +74,88 @@ header {
     }
 }
 
-h2 {
-    font-family: 'NS-regular';
-    margin: 1em 2em;
-    font-size: var(--h2);
+main>section{
+    display: flex;
+    flex-direction: row;
+    margin: 3em;
+}
+main>section h1{
+    font-size: 2em;
+    
 }
 
-form {
+section >h2 {
+    font-family: 'NS-regular';
+    font-size: var(--h2);
+    margin: 0;
+    padding: 0;
+}
+
+/* 
+---------------------dialog--------------------------- */
+main> section > button{
+    border: none;
+    background-color: transparent;
+    align-self: center;
+    height: 2em;
+}
+
+main> section button img{
+    height: 2em;
+    width: auto;
+}
+
+dialog{
+    width: 90vw;
+    height:90vh;
+    border: none;
+    border-radius: .5em;
+    color: var(--blauw);
+}
+
+dialog form{
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    
+}
+dialog form div{
+    display: flex;
+    column-gap: 2em;
+}
+dialog form article{
+    width: 50%;
+}
+dialog form button{
+    font-family: 'NS-Bold';
+    background-color: var(--blauw);
+    width: 15em;
+    padding: 1.5em 1em;
+    color: var(--geel);
+    border-radius: .5em;
+    align-self: end;
+}
+
+/* 
+dialog form article p:first-of-type{
+    font-family: 'NS-bold';
+} */
+dialog form article li{
+    padding: .3em 0;
+}
+dialog form article li ul li{
+    font-family: 'NS-Italic';
+}
+
+/* -----------------------form------------------------- */
+main > form {
     display: flex;
     gap: 1em;
     background-color: var(--wit);
     padding: 2em;
     width: 70%;
     place-self: center;
+
 }
 form> fieldset{
     width: 100%;
@@ -102,13 +174,13 @@ fieldset {
     }
 
     input:user-valid {
-        /* background-color: var(--green); */
+        background-color: var(--green);
         border: .2em solid var(--green-border);
 
     }
 
     input:user-invalid {
-        /* background-color: var(--red); */
+        background-color: var(--red);
         border: .2em solid var(--red-border);
 
     }
@@ -203,16 +275,13 @@ fieldset:has(#neeC1:checked) {
     display: block;
 }
 
-fieldset.c:has(#neeC2:checked) fieldset:nth-of-type(n+4) {
-    display: none;
+fieldset.c:not(:has(#neeC2:checked)) fieldset:nth-of-type(n+4) {
+    display: block;
     transition: .3s ease-in-out;
 }
 
 /* -----------1d---------------- */
 
-small {
-    display: none;
-}
 
 .d:not(:has(#jad1:checked)) fieldset:nth-of-type(n+2) {
     display: none;
@@ -222,10 +291,14 @@ small {
     display: block;
 }
 
+.d section:nth-of-type(1) label:nth-of-type(2)> input{
+    width: 5em;
+}
+
 
 /* ------------button & progress----------- */
 
-article{
+fieldset article{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -244,7 +317,7 @@ section h5{
    margin:var(--margin);
 }
 
-button{
+fieldset button{
     border: none;
     border-radius: .5em;
     padding: 1.3em 2em;
@@ -290,6 +363,9 @@ progress[value]::-moz-progress-bar {
   background: var(--color);
 }
 
+
+
+
 /* -------------2a------------------- */
 
 h3 strong{
@@ -308,26 +384,90 @@ h3 strong{
     padding: 1em 0;
 }
 
+.tweeA  section:nth-of-type(1) label:nth-of-type(3)> input{
+    width: 5em;
+}
+
 
 /* ----------------2b---------------------------- */
 
 input:focus-visible {
-    border: .3em solid var(--blauw);
+   outline: .3em solid var(--blauw);
+}
+.tweeB  > section:nth-of-type(1){
+    display:flex;
+    gap: 1em;
+    padding: 1em 0;
 }
 
+.tweeB fieldset:nth-of-type(1) section label:nth-child(2) input{
+    width: 5em;
+}
+/* .tweeB fieldset:nth-of-type(2){
+    display: flex;
+    gap: 4em;
+} */
+
+.tweeB fieldset:nth-of-type(2) > section > label:first-of-type{
+    font-family: 'NS-Bold';
+    margin: .5em 0;
+}
+ 
+
+.tweeB fieldset:nth-of-type(2) section > section{
+    margin-top: 1em;
+    width: 40%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr ;
+    column-gap: 1em ;
+
+}
+
+.tweeB:not(:has(#AdresBuiten:checked)) fieldset:nth-of-type(2) section:nth-of-type(2) > section{
+    display: none;
+}
+
+
+
+
+/* @media (min-width:750px) and (max-width:1050px){
+    
+    .tweeB fieldset:nth-of-type(2) section > section{
+        grid-template-columns: 100%;
+        grid-template-rows: 1fr 1fr;
+        width:40%;
+        
+    
+    }
+} */
 
 
 
 @media (min-width:580px) and (max-width:750px) {
     
     form {
-       
+
         width: 90%;
     
     }
     form> fieldset{
-        width: 100%;
+        max-width: 100%;
     }
+
+    .tweeA section:nth-of-type(1){
+        flex-direction: column;
+        gap: 1em;
+    }
+ 
+    .tweeB fieldset:nth-of-type(2) section > section{
+    display: grid;
+    grid-template-columns: 100% ;
+    grid-template-rows: 1fr 1fr;
+    
+
+}
+
 }
 
 @media  (max-width:579px) {
@@ -347,11 +487,20 @@ input:focus-visible {
         }
     }
     
+    h3{
+        width: 80%;
+    }
     form {
         width: 90%;
         padding: 1em;
         margin: 0;
     }
+  
+
+    form> fieldset{
+        max-width: 90%;
+    }
+
     .a section:nth-of-type(1){
         flex-direction: column;
         gap: 1em;
@@ -360,6 +509,14 @@ input:focus-visible {
         flex-direction: column;
         gap: 1em;
     }
+ 
+    .tweeB fieldset:nth-of-type(2) section > section{
+    display: grid;
+    grid-template-columns: 100% ;
+    grid-template-rows: 1fr 1fr ; 
+    
+
+}
 }
 
 /* 
