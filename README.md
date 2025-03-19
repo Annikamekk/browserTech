@@ -76,5 +76,8 @@ Ik heb de valide en invalide bijgewerkt, maar werkt niet helemaal hoe ik het wil
 
 ook heb ik de required problemen gefixt want ik had het op de label gezet niet op de input.
 
+<img width="1438" alt="Screenshot 2025-03-19 at 18 04 58" src="https://github.com/user-attachments/assets/1e5f163e-6673-42a3-95ff-08d44eab1f62" />
+
+waar ik ook net achter kwam last minute, was dat de font niet werkt op github. want ik heb hem natuurlijk in gitIgnore gezet. ik weet alleen niet of het de bedoeling is of niet. 
 
 * https://css-tricks.com/dialog-components-roll-your-own/
