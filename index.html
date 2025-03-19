@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="icon" type="image/x-icon" href="img/Nederlandse_Spoorwegen_logo.svg.png">
-    <title>Belasting bij de NS</title>
+    <title>Nep formulier!!!</title>
 </head>
 
 <body>
@@ -22,7 +22,7 @@
                 <form method="dialog">
                     <div>
                         <article>
-                            <h1 class="bold">Algemene Informatie</h1>
+                            <h2 class="bold">Algemene Informatie</h2>
                             <p class="bold">Met dit formulier doet u aangifte erfbelasting voor een overlijden
                                 in 2023.</p>
                             <h2>
@@ -126,17 +126,20 @@
                     <section>
                         <label for="naam">Voorletter(s)
                             <input type="text" name="Voorlet" placeholder="J.H" id="naam" required>
+                            <small>Vul hier je voorletters in! Bijvoorbeeld J.D als je naar John Dirk is.</small>
                         </label>
                         <label for="Tussenvoegsel">Tussen-voegsel(s)
-                            <input type="text" name="Tussenvoegsel" id="Tussenvoegsel">
+                            <input type="text" name="Tussenvoegsel" id="Tussenvoegsel" pattern="^[A-Za-z]+$">
                         </label>
                         <label for="achternaam">Achternaam
-                            <input type="text" name="achternaam" placeholder="Doe" id="achternaam" pttern required>
+                            <input type="text" name="achternaam" placeholder="Doe" id="achternaam"  pattern="^[A-Za-z]+$" required>
+                            <small>Vul hier je achternaam in!</small>
                         </label>
                     </section>
 
                     <label for="BSN">BSN van de overledene
-                        <input type="text" name="BSN" id="BSN" required pattern="[1-9][0-9]{8}" title="123456789">
+                        <input type="text" name="BSN" id="BSN" placeholder="" required pattern="[1-9][0-9]{8}">
+                        <small>Vul hier je Burger Service Nummer in! 0-9 letters, weet u niet waar je die kan vinden? kijk dan op de achterkant van je identiteits bewijs.</small>
                     </label>
 
                     <label for="overlijdingsDag">Overlijdensdatum</label>
@@ -163,19 +166,14 @@
                         </label>
                     </fieldset>
                     <fieldset>
-                        <h3>
+
+                        <label for="ja2"><input type="checkbox" name="checkbox2" id="ja2"  data-requireDing="toggle2">
                             Hadden de overledene en diens echtgenoot of
                             geregistreerd partner huwelijkse of partner schaps-
                             voorwaarden laten vastleggen in een notariële akte?
-                        </h3>
-                        <label for="ja2" class="expandable" data-requireMe="toggle1"><input type="radio" name="aangifte" id="ja2" data-requireDing="toggle2">
-                            ja.</label>
+                        </label>
                         <label for="akte" id="akteFile" class="expandable" data-requireMe="toggle2">Stuur een kopie van de akte mee met de aangifte
                             <input type="file" id="akte" name="akte" accept="image/*,.pdf" /></label>
-                        <label for="nee2" class="expandable" data-requireMe="toggle1">
-                            <input type="radio" name="aangifte" id="nee2">Nee.
-                        </label>
-
                     </fieldset>
                     <fieldset>
                         <h3>
@@ -232,7 +230,7 @@
                 <fieldset class="d">
                     <legend>1d.</legend>
                     <fieldset>
-                        <label for="jad1" data-requireDing="toggle5"><input type="checkbox" name="testamentVraag" id="jad1">
+                        <label for="jad1"><input type="checkbox" name="testamentVraag" id="jad1" data-requireDing="toggle5">
                             Had de overledene een testament?
                         </label>
                     </fieldset>
@@ -241,21 +239,21 @@
                             <input type="text" name="notatis" id="Protocol" value="" pattern="[0-9]{6}">
                         </label>
                         <section>
-                            <label for="voorl" class="expandable" data-requireMe="toggle5">Voorletter(s)
-                                <input type="text" name="Voorl" placeholder="J.D" id="voorl" value="">
+         \.                   <label for="voorl" class="expandable" data-requireMe="toggle5">Voorletter(s)
+                                <input type="text" name="Voorl" placeholder="J.D" id="voorl" value="" pattern="^[A-Za-z]( [A-Za-z]\.)*$">
                             </label>
                             <label for="Tussenv">Tussen-voegsel(s)
                                 <input type="text" name="Tussenv" id="Tussenv" value="">
                             </label>
                             <label for="achtern" class="expandable" data-requireMe="toggle5">Achternaam
-                                <input type="text" name="achtern" placeholder="Doe" id="achtern" value="">
+                                <input type="text" name="achtern" placeholder="Doe" id="achtern" pattern="^[A-Za-z]+$" value="">
                             </label>
                         </section>
                         <label for="Vestigingsplaats" class="expandable" data-requireMe="toggle5"> Vestigingsplaats
                             <input type="text" name="vestiging" id="Vestigingsplaats">
                         </label>
                         <section>
-                            <label for="testamentwijzDD" class="expandable" data-requireMe="toggle5">Datum van het testament of
+                            <label for="testamentwijzDD" data-requireMe="toggle5">Datum van het testament of
                                 van de laatste wijziging</label>
                             <input type="number" name="testamentwijzDD" placeholder="DD" id="testamentwijzDD" min="1"
                                 max="31" value="">
@@ -270,13 +268,13 @@
                 <article>
                     <section>
                         <h5>u bent nu hier:</h5>
-                        <progress max="100" value="1"></progress>
+                        <progress max="13" value="1"></progress>
                     </section>
                     <button type="submit">opslaan</button>
                 </article>
             </fieldset>
         </form>
-        <form action="">
+        <form id="Form2">
             <fieldset>
                 <h3>2. Gegevens gemachtigde</h3>
                 <p>Vul hier de gegevens in van de gemachtigde. </p>
@@ -304,13 +302,13 @@
                     <fieldset>
                         <section>
                             <label for="NotarisVoorl">Voorletter(s)
-                                <input type="text" name="NotarisVoorl" placeholder="J.D" id="NotarisVoorl" required>
+                                <input type="text" name="NotarisVoorl" placeholder="J.D" id="NotarisVoorl"  pattern="^[A-Za-z]\.( [A-Za-z]\.)*$" required>
                             </label>
                             <label for="NotarisTusVoeg">Tussen-voegsel(s)
                                 <input type="text" name="NotarisTusVoeg" id="NotarisTusVoeg">
                             </label>
                             <label for="NotarisAchtern">Achternaam
-                                <input type="text" name="NotarisAchtern" placeholder="" id="NotarisAchtern" required>
+                                <input type="text" name="NotarisAchtern" placeholder="" id="NotarisAchtern" pattern="[A-Za-z]" required>
                             </label>
                         </section>
                         <label for="nInstelling">Naam instelling
@@ -325,37 +323,37 @@
                             </h3>
                             <section>
                                 <label for="StraatNL"> Straatnaam
-                                    <input type="text" name="AdresNL" id="StraatNL" required>
+                                    <input type="text" name="AdresNL" id="StraatNL" pattern="[A-Za-z]" required>
                                 </label>
                                 <label for="HuisNumNL"> Huisnummer
-                                    <input type="text" name="AdresNL" id="HuisNumNL" required>
+                                    <input type="text" name="AdresNL" id="HuisNumNL"  required>
                                 </label>
                                 <label for="PostcodeNL"> Postcode
-                                    <input type="text" name="AdresNL" id="PostcodeNL" required>
+                                    <input type="text" name="AdresNL" id="PostcodeNL" pattern="[1-9][0-9]{3}[\s]?[A-Za-z]{2}" required>
                                 </label>
                                 <label for="WoonNL"> Woonplaats
-                                    <input type="text" name="AdresBuit" id="WoonNL" required>
+                                    <input type="text" name="AdresBuit" id="WoonNL" pattern="[A-Za-z]" required>
                                 </label>
                             </section>
                         </section>
 
                         <section>
-                            <label for="AdresBuiten" data-requireDing="toggle6">
-                                <input type="checkbox" name="" id="AdresBuiten">
+                            <label for="AdresBuiten">
+                                <input type="checkbox" name="AdresBuiten" id="AdresBuiten" data-requireDing="toggle6">
                                 Adres in buitenland
                             </label>
                             <section>
-                                <label for="StraatBuit" data-requireMe="toggle6"> Straatnaam
-                                    <input type="text" name="AdresBuit" id="StraatBuit">
+                                <label for="StraatBuit" data-requireMe="toggle6" > Straatnaam
+                                    <input type="text" name="AdresBuit" id="StraatBuit" pattern="[A-Za-z]">
                                 </label>
                                 <label for="HuisNumBuit" data-requireMe="toggle6"> Huisnummer
                                     <input type="text" name="AdresBuit" id="HuisNumBuit">
                                 </label>
                                 <label for="PostcodeBuit" data-requireMe="toggle6"> Postcode
-                                    <input type="text" name="AdresBuit" id="PostcodeBuit">
+                                    <input type="text" name="AdresBuit" pattern="[1-9][0-9]{3}[\s]?[A-Za-z]{2}" id="PostcodeBuit">
                                 </label>
                                 <label for="WoonBuit" data-requireMe="toggle6"> Plaats
-                                    <input type="text" name="AdresBuit" id="WoonBuit">
+                                    <input type="text" name="AdresBuit" id="WoonBuit" pattern="[A-Za-z]">
                                 </label>
                                 <label for="Landcode" data-requireMe="toggle6"> Landcode
                                     <input type="text" name="AdresBuit" id="Landcode">
@@ -371,9 +369,13 @@
                 <article>
                     <section>
                         <h5>u bent nu hier:</h5>
-                        <progress max="100" value="1"></progress>
+                        <progress max="13" value="2"></progress>
                     </section>
+                    <article>
+                        <button class="terug">terug</button>
                     <button type="submit">opslaan</button>
+                    </article>
+                    
                 </article>
             </fieldset>
 

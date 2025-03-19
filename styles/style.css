@@ -25,12 +25,12 @@
 
 
 :root {
-    --geel: #FFCC00;
-    --blauw: #003082;
-    --wit: white;
+    --geel: #FFC916;
+    --blauw: #033E8C;
+    --wit: #fff;
     --red: rgba(224, 131, 131, 0.2);
-    --red-border: rgb(209, 49, 49);
-    --green:rgba(96, 198, 96, 0.2);
+    --red-border: #D9043D;
+    --green:rgba(206, 228, 206, 0.2);
     --green-border: rgb(48, 133, 48);
     --grey: rgb(231, 231, 231);
 
@@ -40,10 +40,11 @@
 }
 
 .bold{
-    font-family: 'NS-Bold';
+    font-family: 'NS-Bold',Arial, Helvetica, sans-serif;
+    font-weight: 700;
 }
 body {
-    font-family: 'NS-Regular';
+    font-family: 'NS-Regular',Arial, Helvetica, sans-serif;
     background-color: var(--geel);
     color: var(--blauw);
     box-sizing: border-box;
@@ -59,15 +60,16 @@ header {
     justify-items: center;
     margin: 0;
 
-    >img {
+    & img {
         padding: 0 2em;
         height: 2em;
         width: auto;
         place-self: center;
     }
 
-    >h1 {
-        font-family: 'NS-Bold';
+    & h1 {
+        font-family: 'NS-Bold',Arial, Helvetica, sans-serif;
+        font-weight: bold;
         font-size: 1.5em;
         align-self: center;
         width: 100%;
@@ -77,7 +79,7 @@ header {
 main>section{
     display: flex;
     flex-direction: row;
-    margin: 3em;
+    margin: 2em;
 }
 main>section h1{
     font-size: 2em;
@@ -85,7 +87,7 @@ main>section h1{
 }
 
 section >h2 {
-    font-family: 'NS-regular';
+    font-family: 'NS-regular',Arial, Helvetica, sans-serif;
     font-size: var(--h2);
     margin: 0;
     padding: 0;
@@ -127,7 +129,8 @@ dialog form article{
     width: 50%;
 }
 dialog form button{
-    font-family: 'NS-Bold';
+    font-family: 'NS-Bold',Arial, Helvetica, sans-serif;
+    font-weight: bold;
     background-color: var(--blauw);
     width: 15em;
     padding: 1.5em 1em;
@@ -144,12 +147,12 @@ dialog form article li{
     padding: .3em 0;
 }
 dialog form article li ul li{
-    font-family: 'NS-Italic';
+    font-family: 'NS-Italic',Arial, Helvetica, sans-serif;
+    font-style: italic;
 }
 
 /* -----------------------form------------------------- */
 main > form {
-    display: flex;
     gap: 1em;
     background-color: var(--wit);
     padding: 2em;
@@ -157,37 +160,81 @@ main > form {
     place-self: center;
 
 }
+/* //////////////////////////// terug button//////////////////////// */
+form> button{
+    font-family: 'NS-Bold',Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-transform: capitalize;
+    background-color: transparent;
+    border: .1em solid var(--blauw);
+    color:var(--blauw) ;
+    text-align: center;
+    border-radius: .4em;
+    padding: .5em 1em;
+    width:5em;
+}
 form> fieldset{
     width: 100%;
+    place-self: center;
 }
 fieldset {
     margin: var(--margin);
+    border: .1em solid var(--blauw);
 
     p {
-        font-family: 'NS-Italic';
+        font-family: 'NS-Italic',Arial, Helvetica, sans-serif;
+        font-style: italic;
         margin: 0;
         font-size: 1em;
     }
 
+    input {
+        accent-color: var(--geel);
+        margin: var(--margin);
+        border: .12em solid var(--blauw);
+        border-radius: .2em;
+        padding:.5em;
+    }
+    
     input[type="number"] {
         width: 4em;
     }
 
     input:user-valid {
         background-color: var(--green);
-        border: .2em solid var(--green-border);
+      
+        border:none;
+        border-right: .2em solid var(--green-border);
 
     }
 
     input:user-invalid {
         background-color: var(--red);
-        border: .2em solid var(--red-border);
+        border:none;
+        border-right: .3em solid var(--red-border);
 
     }
-   
-    /* .required::after::after {
+
+    label:has(input:user-valid) small{
+        display: none;
+    } 
+
+    label:has(input:placeholder-shown) small{
+        display: none;
+    }
+
+    label:has(input:user-invalid) small{
+        display: block;
+        color: var(--red-border);
+    }
+
+
+    label:has(input:required)::before{
         content: " *";
-    } */
+       color: var(--bl);
+
+    }
+
     
     fieldset h3 {
         font-size: var(--h3);
@@ -196,20 +243,14 @@ fieldset {
     }
 
     h4 {
-        font-family: 'NS-Bold';
+        font-family: 'NS-Bold',Arial, Helvetica, sans-serif;
+        font-weight: bold;
     }
-
-    input {
-        margin: var(--margin);
-        border: .12em solid var(--blauw);
-        border-radius: .2em;
-        padding:.5em;
-    }
-    
 }
 
 form>fieldset>h3 {
-    font-family: 'NS-Bold';
+    font-family: 'NS-Bold',Arial, Helvetica, sans-serif;
+    font-weight: bold;
     font-size: 1.5em;
     margin: .5em;
 }
@@ -219,11 +260,18 @@ form>fieldset>h3 {
 .a {
     display: flex;
     flex-direction: column;
+
 }
 
 .a section:nth-of-type(1){
     display:flex;
     gap: 1em;
+    place-items: start;
+    width: 90%;
+}
+
+.a section:nth-of-type(1) label{
+    flex: 1;
 }
 
 .a section:nth-of-type(1) label:nth-of-type(2)> input{
@@ -248,7 +296,8 @@ fieldset:not(:has(#ja2:checked)) #akteFile {
     display: block;
     /* background-color: var(--blauw);
     color: var(--geel); */
-    font-family: 'NS-Bold';
+    font-family: 'NS-Bold',Arial, Helvetica, sans-serif;
+    font-weight: bold;
     font-size: 1.1em;
     width: 50%;
     
@@ -312,10 +361,32 @@ section{
     width: 80%;
 }
 section h5{
-    font-family: 'NS-Demi';
+    font-family: 'NS-Demi',Arial, Helvetica, sans-serif;
     font-size: 1em;
    margin:var(--margin);
 }
+
+fieldset article >article{
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+    column-gap: .5em;
+ }
+
+ fieldset article >article button{
+    width: 50%;
+    padding: 1em;
+    
+ }
+
+ fieldset article >article button:first-child{
+    border: .1em solid var(--blauw);
+    background-color: transparent;
+    align-self: center;
+    color:var(--blauw);
+    font-family: 'NS-Bold',Arial, Helvetica, sans-serif;
+    font-weight: bold;
+ }
 
 fieldset button{
     border: none;
@@ -337,6 +408,11 @@ fieldset:valid button {
     background-color: var(--blauw);
     color:var(--geel) ;
 }
+
+button:focus-visible{
+    outline: .3em solid var(--blauw);
+}
+
 progress[value] {
   --color: var(--blauw); /* the progress color */
   --background:var(--grey); /* the background color */
@@ -369,7 +445,8 @@ progress[value]::-moz-progress-bar {
 /* -------------2a------------------- */
 
 h3 strong{
-    font-family: 'NS-Bold';
+    font-family: 'NS-Bold',Arial, Helvetica, sans-serif;
+    font-weight: bold;
 }
 
 .tweeA {
@@ -392,8 +469,15 @@ h3 strong{
 /* ----------------2b---------------------------- */
 
 input:focus-visible {
-   outline: .3em solid var(--blauw);
+   outline: .2em solid var(--blauw);
 }
+label:focus-within{
+    color: var(--blauw);
+    font-family: 'NS-Bold',Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    /* padding: .5em; */
+}
+
 .tweeB  > section:nth-of-type(1){
     display:flex;
     gap: 1em;
@@ -409,7 +493,8 @@ input:focus-visible {
 } */
 
 .tweeB fieldset:nth-of-type(2) > section > label:first-of-type{
-    font-family: 'NS-Bold';
+    font-family: 'NS-Bold',Arial, Helvetica, sans-serif;
+    font-weight: bold;
     margin: .5em 0;
 }
  
@@ -448,7 +533,7 @@ input:focus-visible {
     
     form {
 
-        width: 90%;
+        width: 100%;
     
     }
     form> fieldset{
@@ -467,6 +552,50 @@ input:focus-visible {
     
 
 }
+#akteFile{
+    width:90%;
+}
+fieldset article{
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+section{
+    width: 100%;
+}
+
+ article >article button{
+    /* width:45%; */
+    padding: 1em;
+ }
+ fieldset article >article{
+    align-self:end ;
+    width: 50%;
+ }
+
+dialog form{
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    
+}
+dialog form div{
+    display: flex;
+    flex-direction: column;
+    column-gap: 2em;
+}
+dialog form article{
+    width: 90%;
+}
+dialog form button{
+    width: 10em;
+    padding: 1em;
+    margin: 0 1em;
+}
+
+dialog form article li{
+    padding: .1em;
+}
 
 }
 
@@ -475,22 +604,30 @@ input:focus-visible {
         padding: 0 ;
         justify-items: center;
 
-        >h1{
+        & h1{
             font-size: 1.2em;
         }
 
-        >img {
+        & img {
             height: 1.5em;
             width: auto;
             padding: 1em;
             place-self: center;
         }
     }
+    #akteFile{
+        width:90%;
+    }
+    
+
+    main>section{
+        margin:1em 0;
+    }
     
     h3{
         width: 80%;
     }
-    form {
+    main > form {
         width: 90%;
         padding: 1em;
         margin: 0;
@@ -517,13 +654,66 @@ input:focus-visible {
     
 
 }
+input[id="akte"]{
+    width: 100%;
 }
 
-/* 
-label p{
-    display: none;
+fieldset article{
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+section{
+    width: 100%;
 }
 
-label:has(input:user-invalid) + p{
-    display: block;
-} */
+ article >article button{
+    /* width:45%; */
+    padding: 1em;
+ }
+ fieldset article >article{
+    width: 100%;
+ }
+
+progress[value] {
+  border-radius:2em;
+}
+progress[value]::-webkit-progress-bar {
+  border-radius: 2em;
+}
+progress[value]::-webkit-progress-value {
+  border-radius: 2em;
+}
+progress[value]::-moz-progress-bar {
+  border-radius: 2em;
+}
+
+/* //////////////dialog////////// */
+dialog form{
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    
+}
+dialog form div{
+    display: flex;
+    flex-direction: column;
+    column-gap: 2em;
+}
+dialog form article{
+    width: 90%;
+}
+dialog form button{
+    width: 10em;
+    padding: 1em;
+    margin: 0 0;
+}
+
+dialog form article li{
+    padding: 0 .5em;
+}
+dialog p{
+    hyphens: auto;
+}
+}
+

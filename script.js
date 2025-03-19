@@ -30,6 +30,46 @@ function toggleDisabled(input) {
 });
 
 
+const form = document.querySelector("form");
+const button = form.querySelector("button");
+
+function updateButtonState() {
+    if (form.checkValidity()) {
+        button.removeAttribute("disabled");
+    } else {
+        button.setAttribute("disabled", "true");
+    }
+}
+
+// Luisteren naar veranderingen in het formulier
+form.addEventListener("input", updateButtonState);
+form.addEventListener("change", updateButtonState);
+
+// Initialiseren bij pagina-load
+updateButtonState();
+
+
+
+const form1 = document.getElementById("Form1");
+const form2 = document.getElementById("Form2");
+
+    // Verberg Form2 bij het laden van de pagina
+    form2.style.display = "none";
+
+    // Voeg een event toe aan Form1 om het te verbergen en Form2 te tonen
+    form1.onsubmit = function(event) {
+        event.preventDefault(); // Voorkom standaard verzenden van formulier
+        form1.style.display = "none"; // Verberg Form1
+        form2.style.display = "block"; // Toon Form2
+    };
+
+    document.querySelector("#Form2  button").onclick = function(event) {
+        event.preventDefault(); // Voorkom standaard formuliergedrag
+        form2.style.display = "none"; // Verberg Form2
+        form1.style.display = "block"; // Toon Form1
+    };
+
+
 
 // als de checkboxes 1b,1c,1d open zijn dat wil ik bepaalde inputs required maken
 
@@ -89,12 +129,14 @@ function requireDingen(){
        
         radios.forEach(input => {
             input.setAttribute("required", "true");
+            console.log('aan');
         });
         
       } else {
         
         radios.forEach(input => {
           input.removeAttribute("required");
+          console.log('uit');
         });
       }
       console.log("hoi");
@@ -110,10 +152,63 @@ document.addEventListener("DOMContentLoaded", function () {
         const progressBar = document.querySelector("progress");
 
         if (form.checkValidity()) {
-            progressBar.value = 7.7;
+            progressBar.value = 2;
         } else {
             progressBar.value = 1;
         }
     });
     console.log(this);
+});
+
+//////////////// 
+
+
+// const inputFields = document.querySelectorAll("input");
+ 
+// inputFields.forEach((inputField) => {
+//     if (localStorage.getItem(inputField.id)) {
+//         inputField.value = localStorage.getItem(inputField.id);
+//     }
+//     inputField.addEventListener("input", () => {
+//         localStorage.setItem(inputField.id, inputField.value);
+//     });
+// });
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Selecteer alle inputvelden
+    const inputFields = document.querySelectorAll("input");
+ 
+    inputFields.forEach((inputField) => {
+        // Verschillende behandeling op basis van het type inputveld
+        const fieldId = inputField.id;
+       
+        // Eerst de waarden uit localStorage halen en toewijzen
+        if (localStorage.getItem(fieldId) !== null) {
+            if (inputField.type === "radio") {
+                // Voor radiobuttons, controleer of de waarde overeenkomt
+                inputField.checked = (localStorage.getItem(fieldId) === inputField.value);
+            } else if (inputField.type === "date") {
+                // Voor datumvelden gewoon de waarde toewijzen
+                inputField.value = localStorage.getItem(fieldId);
+            } else {
+                // Voor normale tekstvelden, e-mail, enz.
+                inputField.value = localStorage.getItem(fieldId);
+            }
+        }
+       
+        // Event listeners toevoegen voor het opslaan van waarden
+        if (inputField.type === "radio") {
+            // Voor radiobuttons luisteren naar het change event
+            inputField.addEventListener("change", () => {
+                if (inputField.checked) {
+                    localStorage.setItem(fieldId, inputField.value);
+                }
+            });
+        } else {
+            // Voor andere velden luisteren naar het input event
+            inputField.addEventListener("input", () => {
+                localStorage.setItem(fieldId, inputField.value);
+            });
+        }
+    });
 });
