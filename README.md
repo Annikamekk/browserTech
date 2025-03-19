@@ -68,4 +68,13 @@ Daarnaast heb ik ook ook javascript geschreven zodat als je op de button klikt d
 
 <img width="500" alt="Screenshot 2025-03-18 at 22 03 16" src="https://github.com/user-attachments/assets/39ab2489-4e95-4281-a775-8b6323d63319" />
 
+Ik heb de valide en invalide bijgewerkt, maar werkt niet helemaal hoe ik het wil.
+
+<img width="1000" alt="Screenshot 2025-03-19 at 13 20 37" src="https://github.com/user-attachments/assets/bddc2f51-2598-4afc-bc98-433b4b1a4d97" />
+<img width="500" alt="Screenshot 2025-03-19 at 13 22 02" src="https://github.com/user-attachments/assets/2b399c5b-59d3-4c67-b7cf-557edd85bd44" />
+<img width="500" alt="Screenshot 2025-03-19 at 13 22 55" src="https://github.com/user-attachments/assets/f243610f-f785-4831-b427-1375958c7920" />
+
+ook heb ik de required problemen gefixt want ik had het op de label gezet niet op de input.
+
+
 * https://css-tricks.com/dialog-components-roll-your-own/
